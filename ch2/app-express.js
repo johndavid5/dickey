@@ -1,6 +1,7 @@
 // http://www.bennadel.com/blog/2169-where-does-node-js-and-require-look-for-modules.htm
 //var express = require('express');
-var express = require("C:\\Users\\john.aynedjian\\AppData\\Roaming\\npm\\node_modules\\express");
+//var express = require("C:\\Users\\john.aynedjian\\AppData\\Roaming\\npm\\node_modules\\express");
+var express = require("C:\\Users\\John.diana\\AppData\\Roaming\\npm\\node_modules\\express");
 
 var app = express();
 
@@ -27,4 +28,6 @@ app.get('/*', function(req, res){
 	res.status(200).send(s_output);
 });
 
-app.listen(8888);
+var port = 8888;
+app.listen(port);
+console.log("Listening on port " + port + "...");

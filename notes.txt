@@ -1,3 +1,7 @@
-c:\inetpub\wwwroot\dickey>npm install -g express
-> express@4.9.7 C:\Users\john.aynedjian\AppData\Roaming\npm\node_modules\express
+https://github.com/dickeyxxx/mean-sample
 
+c:\inetpub\wwwroot\dickey>npm install -g express
+# On Jayne: 10/17/14
+> express@4.9.7 C:\Users\john.aynedjian\AppData\Roaming\npm\node_modules\express
+# On Diana: 10/18/14
+> express@4.9.8 C:\Users\John.diana\AppData\Roaming\npm\node_modules\express
