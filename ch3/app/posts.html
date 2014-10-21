@@ -4,28 +4,67 @@
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body ng-app='app'>
-  <div class='container'>
+  <div ng-controller='PostsCtrl' class='container'>
   <h1>Recent Posts</h1>
+  <form role='form'>
+	  <div class='form-group'>
+		<div class='input-group'>
+		  <input ng-model='postBody' class='form-control' />
+            <span class='input-group-btn'>
+			  <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+			</span>
+		</div>
+	</div>
+  </form>
   <ul class='list-group'>
-    <li class=list-group-item'>
-      <strong>@dickeyxxx</strong>
-      <span>Node rules!</span>
-    </li>
-    <li class=list-group-item'>
-      <strong>@jeffdickey</strong>
-      <span>Trying out angular.js...</span>
+    <li ng-repeat='post in posts' class='list-group-item'>
+	<strong>@{{ post.username }}</strong>
+	<span>{{ post.body }}</span>
     </li>
    </ul>
    </div>
-</body>
-</html>
 <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
 <script>
-// Your app must be declared as a module.
-// Module Declaration: (name, [/* array of modules that his module depends on*/ ])
-angular.module('app', []);
+// Create our app module...
+var app = angular.module('app', []);
 
-// Controller Declaration: (name, function(){/* function used to build an instance of the controller*/ } )
+// create the PostsCtrl module
+// dependency inject $scope
+app.controller(
+  'PostsCtrl', 
+	// The function runs when the "Add Post" button is clicked.
+  function($scope){
 
+	$scope.addPost = function(){
+		if( $scope.postBody ){
+		// Only add a post if there is a body...
+			$scope.posts.unshift(
+			// unshift a new post into $scope.posts
+			{ username: 'dickeyxxx',
+			  body: $scope.postBody // Use the text entered
+			});
+			$scope.postBody=null; // Clear input field after post...
+		}
+		else {
+			alert("Please enter something in the field before clicking on Add Post!");
+		}
+	};
+
+	// Starting Data
+	$scope.posts = [
+		{
+			username: 'dickeyxxx',
+			body: 'Node rules!'
+		},
+		{
+			username: 'jeffdickey',
+			body: 'trying out angular.js...'
+		},
+	];
+
+  }
+);
 </script>
+
 </body>
+</html>

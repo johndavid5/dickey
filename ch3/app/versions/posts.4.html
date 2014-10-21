@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-app='app'>
+  <div ng-controller='PostsCtrl' class='container'>
+  <h1>Recent Posts</h1>
+  <input ng-model='postBody' class='form-control' />
+  <!-- The ng-model directive hooks an input to a 
+  $scope property.  Now if you access $scope.postBody
+  inside the controller, you'll get the data inside
+  this text field. -->
+  <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+  <!-- ng-click is a directive that is typically used to
+       call a function on $scope. -->
+  <ul class='list-group'>
+    <li ng-repeat='post in posts' class='list-group-item'>
+	<strong>@{{ post.username }}</strong>
+	<span>{{ post.body }}</span>
+    </li>
+   </ul>
+   </div>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+<script>
+// Your app must be declared as a module.
+// Module Declaration:
+// angular.module(name, [/* array of modules that his module depends on*/ ])
+var app = angular.module('app', []);
+
+// Controller Declaration: <instance_of_module>.controller(
+//        name_of_controller,
+//	    function($scope){
+//		  /* function used to build an instance of the controller. */
+//	    }
+//	  );
+//
+// 1. Create a controller called 'PostCtrl' on the "app" module...
+// 2. The controller has an array that represents the post you see
+//    in HTML.
+// 3. When you declare a controller, you do what's known in Angular
+//    as "dependency inject $scope".
+// 4. What is "$scope"?  It's simply an object you can access in the
+//    HTML and in the controller.  Remember, that when sharing controller
+//    data to the view, use "$scope".  When referencing controller data
+//    from the view, leave out "$scope".
+app.controller(
+  'PostsCtrl', 
+  function($scope){
+	$scope.posts = [
+		{
+			username: 'dickeyxxx',
+			body: 'Node rules!'
+		},
+		{
+			username: 'jeffdickey',
+			body: 'trying out angular.js...'
+		},
+	];
+
+	// Array::unshift(): Push new element to
+	// the beginning of the array.
+	$scope.addPost = function(){
+		if( $scope.postBody ){
+			$scope.posts.unshift(
+			{ username: 'dickeyxxx',
+			  body: $scope.postBody
+			});
+			$scope.postBody=null; // Clear input field after post...
+		}
+		else {
+			alert("Please enter something in the field before clicking on Add Post!");
+		}
+	};
+  }
+);
+</script>
+
+</body>
+</html>
