@@ -39,7 +39,7 @@ app.controller(
 
 	$scope.addPost = function(){
 		if( $scope.postBody ){
-		// Only add a post if there is a body...
+			// Only add a post if there is a body...
 			$scope.posts.unshift(
 			// unshift a new post into $scope.posts
 			{ username: 'dickeyxxx',
@@ -68,7 +68,10 @@ app.controller(
 	}
 
 	//var node_url = 'http://localhost:3000/api/posts';
-	var node_url = 'http://jayne:3000/api/posts';
+	//var node_url = 'http://jayne:3000/api/posts';
+	var node_url = '/api/posts';
+
+	console.log("GET-ting posts from '" + node_url + "'...");
 
 	// NEW!  Use posts from server as starting data...
 	$http.get(node_url)

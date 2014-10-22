@@ -8,43 +8,21 @@ app.use(bodyParser.json());
 
 var Post = require('./models/post');	
 
-app.get('/', function(req, res){
-	// TypeError: path must be absolute or specify root to res.sendFile
-    // at ServerResponse.sendFile
-	// (c:\inetpub\wwwroot\dickey\app\node\node_modules\
-	// express\lib\response.js:389:11)
-	//res.sendFile('layouts/posts.html');
-
-	// Wed, 22 Oct 2014 23:24:46 GMT
-	// express deprecated res.sendfile: Use res.sendFile
-	// instead at server.js:12:6
-	res.sendfile('layouts/posts.html');
-});
-
 app.get('/api/posts',
 	function(req, res, next){
 		console.log( "[" + jutils.dateTimeCompact() + "]: " +
 		"Got request on '/api/posts'..."
 		);
 
-		Post.find()
-		.sort('-date')
-		.exec(function(err, posts){
+		Post.find( function(err, posts){		
 			if(err){
-				return next(err)
+				console.log('Error during Post.find: err = ', err );
+				return next(err);
 			}
-			res.json(posts);
-		})
 
-		//Post.find( function(err, posts){		
-		//	if(err){
-		//		console.log('Error during Post.find: err = ', err );
-		//		return next(err);
-		//	}
-		//
-		//			console.log('Post.find successful; sending posts to client, posts =', posts);
-		//			res.json(posts);
-		//		});
+			console.log('Post.find successful; sending posts to client, posts =', posts);
+			res.json(posts);
+		});
 
 		//res.json([
 		//	{
