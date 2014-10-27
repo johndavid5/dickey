@@ -1,6 +1,442 @@
-[2014-10-22 7:30:17 PM GMT-4.00]: Server listening on port  3000 ...
+26 Oct 22:13:09 - [33m[nodemon] v1.2.1[39m
+26 Oct 22:13:09 - [33m[nodemon] to restart at any time, enter `rs`[39m
+26 Oct 22:13:09 - [33m[nodemon] watching: *.*[39m
+26 Oct 22:13:09 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:13:10 PM GMT-4.00]: Server listening on port  3000 ...
 mongodb connected...
-Wed, 22 Oct 2014 23:30:21 GMT express deprecated res.sendfile: Use res.sendFile instead at server.js:21:6
-[2014-10-22 7:30:21 PM GMT-4.00]: Got request on '/api/posts'...
-[2014-10-22 7:31:57 PM GMT-4.00]: Got request on '/api/posts'...
-[2014-10-22 7:33:08 PM GMT-4.00]: Got request on '/api/posts'...
+Mon, 27 Oct 2014 02:13:13 GMT express deprecated res.sendfile: Use res.sendFile instead at controllers\static.js:23:6
+[2014-10-26 10:13:14 PM GMT-4.00]: Got request on '/api/posts'...doing Post.find()...
+Post.find successful; sending posts to client, posts = [ { _id: 544c612b478d7dc84c08d443,
+    username: 'dickeyxxx',
+    body: 'eee',
+    __v: 0,
+    date: Sat Oct 25 2014 22:49:15 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5f5d341d5f884dd62f6b,
+    username: 'dickeyxxx',
+    body: 'ddd',
+    __v: 0,
+    date: Sat Oct 25 2014 22:41:33 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5b900ee284844510ddef,
+    username: 'dickeyxxx',
+    body: 'Just call me Roy...',
+    __v: 0,
+    date: Sat Oct 25 2014 22:25:20 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4fe9f1fae3c03c02b1dc,
+    username: 'dickeyxxx',
+    body: 'Yippee Ki Yay!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:35:37 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4d5cbceb2a143daff761,
+    username: 'dickeyxxx',
+    body: 'Welcome to the party, Pal!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:24:44 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4bf66e049e783f370a16,
+    username: 'dickeyxxx',
+    body: 'No chance!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:18:46 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425d26efb9d4296e85f2,
+    username: 'dickeyxxx',
+    body: 'Let off some steam, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:49 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425526efb9d4296e85f1,
+    username: 'dickeyxxx',
+    body: 'I\'ll be back, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:41 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c424b26efb9d4296e85f0,
+    username: 'dickeyxxx',
+    body: 'You\'re a funny guy, Sully, I like you.  That\'s why I\'m gonna kill you last.',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:31 GMT-0400 (Eastern Daylight Time) } ]
+[2014-10-26 10:13:58 PM GMT-4.00]: Got request on '/api/posts'...doing Post.find()...
+Post.find successful; sending posts to client, posts = [ { _id: 544c612b478d7dc84c08d443,
+    username: 'dickeyxxx',
+    body: 'eee',
+    __v: 0,
+    date: Sat Oct 25 2014 22:49:15 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5f5d341d5f884dd62f6b,
+    username: 'dickeyxxx',
+    body: 'ddd',
+    __v: 0,
+    date: Sat Oct 25 2014 22:41:33 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5b900ee284844510ddef,
+    username: 'dickeyxxx',
+    body: 'Just call me Roy...',
+    __v: 0,
+    date: Sat Oct 25 2014 22:25:20 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4fe9f1fae3c03c02b1dc,
+    username: 'dickeyxxx',
+    body: 'Yippee Ki Yay!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:35:37 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4d5cbceb2a143daff761,
+    username: 'dickeyxxx',
+    body: 'Welcome to the party, Pal!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:24:44 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4bf66e049e783f370a16,
+    username: 'dickeyxxx',
+    body: 'No chance!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:18:46 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425d26efb9d4296e85f2,
+    username: 'dickeyxxx',
+    body: 'Let off some steam, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:49 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425526efb9d4296e85f1,
+    username: 'dickeyxxx',
+    body: 'I\'ll be back, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:41 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c424b26efb9d4296e85f0,
+    username: 'dickeyxxx',
+    body: 'You\'re a funny guy, Sully, I like you.  That\'s why I\'m gonna kill you last.',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:31 GMT-0400 (Eastern Daylight Time) } ]
+26 Oct 22:16:49 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:16:49 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:16:50 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:16:52 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+Mon, 27 Oct 2014 02:17:11 GMT express deprecated res.sendfile: Use res.sendFile instead at controllers\static.js:23:6
+[2014-10-26 10:17:11 PM GMT-4.00]: Got request on '/api/posts'...doing Post.find()...
+Post.find successful; sending posts to client, posts = [ { _id: 544c612b478d7dc84c08d443,
+    username: 'dickeyxxx',
+    body: 'eee',
+    __v: 0,
+    date: Sat Oct 25 2014 22:49:15 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5f5d341d5f884dd62f6b,
+    username: 'dickeyxxx',
+    body: 'ddd',
+    __v: 0,
+    date: Sat Oct 25 2014 22:41:33 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5b900ee284844510ddef,
+    username: 'dickeyxxx',
+    body: 'Just call me Roy...',
+    __v: 0,
+    date: Sat Oct 25 2014 22:25:20 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4fe9f1fae3c03c02b1dc,
+    username: 'dickeyxxx',
+    body: 'Yippee Ki Yay!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:35:37 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4d5cbceb2a143daff761,
+    username: 'dickeyxxx',
+    body: 'Welcome to the party, Pal!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:24:44 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4bf66e049e783f370a16,
+    username: 'dickeyxxx',
+    body: 'No chance!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:18:46 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425d26efb9d4296e85f2,
+    username: 'dickeyxxx',
+    body: 'Let off some steam, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:49 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425526efb9d4296e85f1,
+    username: 'dickeyxxx',
+    body: 'I\'ll be back, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:41 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c424b26efb9d4296e85f0,
+    username: 'dickeyxxx',
+    body: 'You\'re a funny guy, Sully, I like you.  That\'s why I\'m gonna kill you last.',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:31 GMT-0400 (Eastern Daylight Time) } ]
+26 Oct 22:21:25 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:21:25 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:21:27 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:23:20 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:23:20 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:23:22 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:23:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:23:35 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:23:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:24:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:24:35 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:24:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+Mon, 27 Oct 2014 02:25:43 GMT express deprecated res.sendfile: Use res.sendFile instead at controllers\static.js:23:6
+[2014-10-26 10:25:44 PM GMT-4.00]: Got request on '/api/posts'...doing Post.find()...
+Post.find successful; sending posts to client, posts = [ { _id: 544c612b478d7dc84c08d443,
+    username: 'dickeyxxx',
+    body: 'eee',
+    __v: 0,
+    date: Sat Oct 25 2014 22:49:15 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5f5d341d5f884dd62f6b,
+    username: 'dickeyxxx',
+    body: 'ddd',
+    __v: 0,
+    date: Sat Oct 25 2014 22:41:33 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5b900ee284844510ddef,
+    username: 'dickeyxxx',
+    body: 'Just call me Roy...',
+    __v: 0,
+    date: Sat Oct 25 2014 22:25:20 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4fe9f1fae3c03c02b1dc,
+    username: 'dickeyxxx',
+    body: 'Yippee Ki Yay!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:35:37 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4d5cbceb2a143daff761,
+    username: 'dickeyxxx',
+    body: 'Welcome to the party, Pal!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:24:44 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4bf66e049e783f370a16,
+    username: 'dickeyxxx',
+    body: 'No chance!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:18:46 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425d26efb9d4296e85f2,
+    username: 'dickeyxxx',
+    body: 'Let off some steam, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:49 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425526efb9d4296e85f1,
+    username: 'dickeyxxx',
+    body: 'I\'ll be back, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:41 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c424b26efb9d4296e85f0,
+    username: 'dickeyxxx',
+    body: 'You\'re a funny guy, Sully, I like you.  That\'s why I\'m gonna kill you last.',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:31 GMT-0400 (Eastern Daylight Time) } ]
+26 Oct 22:28:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:28:36 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:28:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:28:55 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:28:56 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:28:57 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+Mon, 27 Oct 2014 02:30:26 GMT express deprecated res.sendfile: Use res.sendFile instead at controllers\static.js:23:6
+[2014-10-26 10:30:26 PM GMT-4.00]: Got request on '/api/posts'...doing Post.find()...
+Post.find successful; sending posts to client, posts = [ { _id: 544c612b478d7dc84c08d443,
+    username: 'dickeyxxx',
+    body: 'eee',
+    __v: 0,
+    date: Sat Oct 25 2014 22:49:15 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5f5d341d5f884dd62f6b,
+    username: 'dickeyxxx',
+    body: 'ddd',
+    __v: 0,
+    date: Sat Oct 25 2014 22:41:33 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c5b900ee284844510ddef,
+    username: 'dickeyxxx',
+    body: 'Just call me Roy...',
+    __v: 0,
+    date: Sat Oct 25 2014 22:25:20 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4fe9f1fae3c03c02b1dc,
+    username: 'dickeyxxx',
+    body: 'Yippee Ki Yay!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:35:37 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4d5cbceb2a143daff761,
+    username: 'dickeyxxx',
+    body: 'Welcome to the party, Pal!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:24:44 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c4bf66e049e783f370a16,
+    username: 'dickeyxxx',
+    body: 'No chance!',
+    __v: 0,
+    date: Sat Oct 25 2014 21:18:46 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425d26efb9d4296e85f2,
+    username: 'dickeyxxx',
+    body: 'Let off some steam, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:49 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c425526efb9d4296e85f1,
+    username: 'dickeyxxx',
+    body: 'I\'ll be back, Bennett!',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:41 GMT-0400 (Eastern Daylight Time) },
+  { _id: 544c424b26efb9d4296e85f0,
+    username: 'dickeyxxx',
+    body: 'You\'re a funny guy, Sully, I like you.  That\'s why I\'m gonna kill you last.',
+    __v: 0,
+    date: Sat Oct 25 2014 20:37:31 GMT-0400 (Eastern Daylight Time) } ]
+26 Oct 22:33:16 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:33:16 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:33:18 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:35:11 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:35:11 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:35:13 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:35:36 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:35:36 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:35:38 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:36:21 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:36:21 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:36:23 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:36:41 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:36:41 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:36:43 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:36:51 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:36:51 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:36:53 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:37:16 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:37:17 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:37:18 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:43:47 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:43:47 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:43:49 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:43:57 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:43:57 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:43:59 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:44:27 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:44:27 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:44:29 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:44:42 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:44:42 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:44:44 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:45:22 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:45:22 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:45:24 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:45:27 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:45:27 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:45:29 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:46:22 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:46:22 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:46:22 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:46:24 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:47:02 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:47:02 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:47:04 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:48:17 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:48:18 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:48:19 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:48:27 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:48:28 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:48:29 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:49:42 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:49:43 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:49:44 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:49:57 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:49:58 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:49:59 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:50:17 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:50:18 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:50:19 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:59:08 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:59:09 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:59:10 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:59:13 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:59:14 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:59:15 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 22:59:33 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 22:59:34 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 10:59:35 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:00:03 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:00:04 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:00:05 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:00:13 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:00:14 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:00:15 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:00:48 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:00:49 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:00:50 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:00:53 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:00:54 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:00:55 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:02:39 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:02:39 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:02:40 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:02:49 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:02:49 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:02:50 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:02:54 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:02:54 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:02:55 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:03:09 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:03:09 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:03:10 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:04:59 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:04:59 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:05:01 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:08:44 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:08:45 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:08:46 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:08:49 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:08:49 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:08:51 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:16:00 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:16:00 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:16:02 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:16:05 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:16:05 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:16:07 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:16:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:16:35 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:16:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:16:45 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:16:45 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:16:47 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:17:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:17:35 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:17:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:17:50 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:17:50 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:17:52 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:18:05 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:18:05 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:18:07 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:18:25 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:18:25 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:18:27 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...
+26 Oct 23:18:35 - [32m[nodemon] restarting due to changes...[39m
+26 Oct 23:18:35 - [32m[nodemon] starting `node server.js`[39m
+[2014-10-26 11:18:37 PM GMT-4.00]: Server listening on port  3000 ...
+mongodb connected...

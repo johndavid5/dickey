@@ -1,8 +1,3 @@
-// Create our app module...
-// IMPORTANT: This setter MUST be called first...
-// ...then others can get it via angular.module('app')... 
-var app = angular.module('app', []);
-
 
 // create the PostsCtrl module
 // dependency inject $scope
@@ -72,22 +67,3 @@ app.controller(
 
   }
 );
-
-// Break Angular into Services:
-//
-// Avoid having $http inside the controller.
-// Define the 'PostsSvc' service on the app object...
-// ...and dependency inject $http
-// ...then define a function on the service
-// called fetch() that returns the $http promise
-// for loading posts.
-app.service( 'PostsSvc', function($http){
-	this.fetch = function(){
-		return $http.get('/api/posts');
-	};
-	this.create = function(post){
-		return $http.post('/api/posts', post);	
-	};
-});
-
-console.error('faux error!');
