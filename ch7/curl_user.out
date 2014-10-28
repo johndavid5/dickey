@@ -1,0 +1,50 @@
+* Rebuilt URL to: localhost/
+* Hostname was NOT found in DNS cache
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying ::1...
+* Connected to localhost (::1) port 80 (#0)
+> GET / HTTP/1.1
+> User-Agent: curl/7.36.0
+> Host: localhost
+> Accept: */*
+> X-Auth: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpY2tleXh4eCJ9.0w1RshE-2k7r94VmFZeSH_JBOTAg90EecznduMwaEGc
+> 
+< HTTP/1.1 503 Service Unavailable
+< Content-Type: text/html; charset=us-ascii
+* Server Microsoft-HTTPAPI/2.0 is not blacklisted
+< Server: Microsoft-HTTPAPI/2.0
+< Date: Mon, 27 Oct 2014 23:47:00 GMT
+< Connection: close
+< Content-Length: 326
+< 
+{ [data not shown]
+100   326  100   326    0     0  20375      0 --:--:-- --:--:-- --:--:-- 20375<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Service Unavailable</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Service Unavailable</h2>
+<hr><p>HTTP Error 503. The service is unavailable.</p>
+</BODY></HTML>
+
+* Closing connection 0
+* Hostname was NOT found in DNS cache
+*   Trying ::1...
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 3000 (#1)
+> GET /user HTTP/1.1
+> User-Agent: curl/7.36.0
+> Host: localhost:3000
+> Accept: */*
+> X-Auth: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImRpY2tleXh4eCJ9.0w1RshE-2k7r94VmFZeSH_JBOTAg90EecznduMwaEGc
+> 
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 24
+< ETag: W/"18-50872d99"
+< Date: Mon, 27 Oct 2014 23:47:00 GMT
+< Connection: keep-alive
+< 
+{ [data not shown]
+100    24  100    24    0     0    110      0 --:--:-- --:--:-- --:--:--   110{"username":"dickeyxxx"}
+* Connection #1 to host localhost left intact

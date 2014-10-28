@@ -11,4 +11,8 @@ npm install --save gulp-sourcemaps
 REM Johnny's Addition...allows command-line stuff
 REM to be run from gulp...
 npm install --save gulp-run
+REM Johnny's Addition...
 npm install --save dos2unix
+npm install --save gulp-stylus
+npm install --save gulp-nodemon
+

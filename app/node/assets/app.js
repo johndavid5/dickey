@@ -90,4 +90,4 @@ app.service( 'PostsSvc', function($http){
 	};
 });
 
-console.error('faux error!');
+//console.error('faux error!');

@@ -1,4 +1,6 @@
 MEAN Stack: 
 MongoDB, Express.js, Angular.js, Node.js
+------------------------------------------
 Mongoose - connect to MongoDB from node.js
-gulp (JavScript build tool)
+gulp (JavaScript build tool)
+gulp-stylus (CSS Preprocessor - node )

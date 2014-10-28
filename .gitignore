@@ -1,5 +1,7 @@
 *~
 *.swp
 *.log
+*.out
 archive/
+assets/
 node_modules/
