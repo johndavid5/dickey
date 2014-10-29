@@ -1,1 +1,4 @@
-curl -v --noproxy localhost -XPOST --data "{\"username\": \"dickeyxxx\"}" -H "Content-Type: application/json" http://localhost:3000/session 2>&1 | tee curl_session.out
+REM curl -v --noproxy localhost --trace curl_session.trace.out --trace-ascii curl_session.trace-ascii.out -XPOST --data "{\"username\": \"dickeyxxx\", \"password\": \"passx\"}" -H "Content-Type: application/json" http://localhost:3000/session 2>&1 | tee curl_session.out
+REM curl -v --noproxy localhost --trace-ascii curl_session.trace-ascii.out -XPOST --data "{\"username\": \"dickeyxxx\", \"password\": \"pass\"}" -H "Content-Type: application/json" http://localhost:3000/session 2>&1 | tee curl_session.out
+REM curl -v --noproxy localhost --trace curl_session.trace.out -XPOST --data "{\"username\": \"dickeyxxx\", \"password\": \"pass\"}" -H "Content-Type: application/json" http://localhost:3000/session 2>&1 | tee curl_session.out
+curl -v --noproxy localhost -XPOST --data "{\"username\": \"dickeyxxx\", \"password\": \"pass\"}" -H "Content-Type: application/json" http://localhost:3000/session 2>&1 | tee curl_session.out

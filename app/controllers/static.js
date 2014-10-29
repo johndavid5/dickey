@@ -1,4 +1,4 @@
-var jutils = require(__dirname + '/../../../lib/jutils');
+var jutils = require(__dirname + '/../../lib/jutils');
 var express = require('express');
 var router = require('express').Router();
 

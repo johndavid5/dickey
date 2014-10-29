@@ -1,4 +1,4 @@
-var jutils = require('../../../../lib/jutils.js');
+var jutils = require('../../../lib/jutils.js');
 var Post = require('../../models/post');
 
 // Use Express's Router object...acting like an app object...

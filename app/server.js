@@ -1,4 +1,4 @@
-var jutils = require('../../lib/jutils.js');
+var jutils = require('../lib/jutils.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 
