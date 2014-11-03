@@ -16,3 +16,8 @@ npm install --save dos2unix
 npm install --save gulp-stylus
 npm install --save gulp-nodemon
 
+npm install --save gulp-debug
+npm install --save gulp-tap
+
+npm install --save jwt-simple
+npm install --save bcrypt

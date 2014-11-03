@@ -8,3 +8,5 @@ REM A utility library delivering consistency,
 REM customization, performance, & extras. 
 npm install --save lodash 
 npm install --save bcrypt
+npm install --save jwt-simple
+npm install --save mongoose

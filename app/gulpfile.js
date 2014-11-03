@@ -10,8 +10,9 @@ fs.readdirSync(__dirname + '/gulp').forEach(
 	function(task){
 		var requirer = './gulp/' + task;
 		//console.log("requirer = '" + requirer + "'...");
-		if( requirer.indexOf("~") < 0 ){	
-			console.log("* require('" + requirer + "')...");
+	
+	if( requirer.indexOf("~") < 0 && requirer.indexOf(".js") == requirer.length-3 ){	
+			console.log("* ./gulpfile.js: require('" + requirer + "')...");
 			require('./gulp/' + task);
 		}
 	}

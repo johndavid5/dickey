@@ -46,11 +46,16 @@ router.post('/',
 		console.log("req.body.body = '" + req.body.body + "'...");
 
 		// Build a new instance of the Post model...
+		// Implicitly uses bodyParser.json():
 		var post = new Post({		
-			// Implicitly uses bodyParser.json():
-			username: req.body.username,
+			//username: req.body.username,
 			body: req.body.body
-		})
+		});
+
+		// req.auth.username magically filled in by
+		// "auth" middleware...
+		post.username = req.auth.username;
+
 
 		console.log('New post = ', post );
 		console.log('Saving post to mongodb...');
