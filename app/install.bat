@@ -8,11 +8,13 @@ npm install --save gulp-concat
 npm install --save gulp-uglify
 npm install --save gulp-ng-annotate
 npm install --save gulp-sourcemaps
+
 REM Johnny's Addition...allows command-line stuff
 REM to be run from gulp...
 npm install --save gulp-run
 REM Johnny's Addition...
 npm install --save dos2unix
+
 npm install --save gulp-stylus
 npm install --save gulp-nodemon
 
@@ -21,3 +23,19 @@ npm install --save gulp-tap
 
 npm install --save jwt-simple
 npm install --save bcrypt
+REM NOTE: Needed to do rm -r -f node_modules/bcrypt then
+REM "sudo npm update" to reinstall bcrypt and eliminate
+REM the following error:
+REM /home/john/projects/mean/dickey/app/node_modules/bcrypt/node_modules/bindings/bindings.js:87
+REM  throw err
+REM         ^
+REM Error: Could not load the bindings file. Tried:
+REM  → /home/john/projects/mean/dickey/app/node_modules/bcrypt/build/bcrypt_lib.node
+
+REM http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+REM Install mongodb
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo apt-get install -y mongodb-org=2.6.1 mongodb-org-server=2.6.1 mongodb-org-shell=2.6.1 mongodb-org-mongos=2.6.1 mongodb-org-tools=2.6.1
