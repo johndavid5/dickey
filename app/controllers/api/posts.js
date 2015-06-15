@@ -52,10 +52,14 @@ router.post('/',
 			body: req.body.body
 		});
 
-		// req.auth.username magically filled in by
-		// "auth" middleware...
-		post.username = req.auth.username;
-
+		if( req.auth && req.auth.username ){
+			// req.auth.username magically filled in by
+			// "auth" middleware...
+			post.username = req.auth.username;
+		}
+		else {
+			post.username = "guest";
+		}
 
 		console.log('New post = ', post );
 		console.log('Saving post to mongodb...');

@@ -18,10 +18,12 @@ app.use('/', require('./controllers/static'));
 
 var le_port = 3000;
 
-app.listen(le_port,
+var server = app.listen(le_port,
 	function(){
 		console.log( "[" + jutils.dateTimeCompact() + "]: " +
 		'Server listening on port ', le_port, "...");
 	}
 );
+
+require('./websockets').connect(server);
 	

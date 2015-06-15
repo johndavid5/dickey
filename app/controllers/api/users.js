@@ -1,6 +1,7 @@
 var router = require('express').Router();
 
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var jwt = require('jwt-simple');
 
@@ -35,28 +36,65 @@ router.post('/', function(req, res, next){
 
 	var user = new User({username: req.body.username});
 
-	bcrypt.hash(req.body.password, 10,
-		function(err, hash){
-			if(err){
-				console.log(sWho + ": Error in bcrypt.hash(): err=", err );
-				return next(err);
-			}
+	var iNumRounds = 10;
 
-			user.password = hash;;
+	bcrypt.genSalt( iNumRounds, function(err, salt){ 
+		if( err ){
+			console.log("Trouble with bcrypt.genSalt( iNumRounds = " + iNumRounds + "): err = " + JSON.strinfigy(err) + "..., calling next(err)...");
+			return next(err);
+		}
+		bcrypt.hash( req.body.password, salt, 
+				function(){
+					//console.log("Making progress, Doc-tor Cy-a-nide...!");
+				},
+				function(err, hash){
+					if( err ){
+						console.log("Trouble with bcrypt.hash(): err = " + JSON.stringify(err) + "..., calling next(err)...");
+						return next(err);
+					}
 
-			console.log(sWho + ": Saving user = ", user, " to database...");
+					var user = new User({"username": req.body.username});
 
-			user.save(function(err){
-				if(err){
-					console.log(sWho + ": Error during DB save, err=", err );
-					return next(err);
-				}
+					user.password = hash;
 
-				console.log(sWho + ": DB Save Success, sending code 201 to client...");
-				//res.send(201);
-				res.status(201).end();
-			});
-	});
+					console.log("Saving new user to User DB, user = " + JSON.stringify( user ) + "...\n");
+
+					user.save(function(err, user){
+						if( err ){
+							console.log("Trouble with user.save(): err =\n");
+							console.log( err );
+							return next(err);
+						}
+						console.log("Saved new user username = \"" + req.body.username + "\"..., returning code 201...\n");
+						res.sendStatus(201);
+					});
+
+		}); /* bcrypt.hash() */
+	}); /* bcrypt.genSalt() */
+
+
+//	bcrypt.hash(req.body.password, 10,
+//		function(err, hash){
+//			if(err){
+//				console.log(sWho + ": Error in bcrypt.hash(): err=", err );
+//				return next(err);
+//			}
+//
+//			user.password = hash;;
+//
+//			console.log(sWho + ": Saving user = ", user, " to database...");
+//
+//			user.save(function(err){
+//				if(err){
+//					console.log(sWho + ": Error during DB save, err=", err );
+//					return next(err);
+//				}
+//
+//				console.log(sWho + ": DB Save Success, sending code 201 to client...");
+//				//res.send(201);
+//				res.status(201).end();
+//			});
+//	}); /* bcrypt.hash */
 
 });
 
