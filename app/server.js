@@ -16,7 +16,7 @@ app.use('/api/users', require('./controllers/api/users'));
 app.use('/api/sessions', require('./controllers/api/sessions'));
 app.use('/', require('./controllers/static'));
 
-var le_port = 3000;
+var le_port = 3001;
 
 app.listen(le_port,
 	function(){

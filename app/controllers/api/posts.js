@@ -23,7 +23,7 @@ router.get('/',
 
 			console.log('Post.find successful; sending posts to client, posts =', posts);
 			res.json(posts);
-		})
+		});
 	}
 );
 
@@ -43,6 +43,8 @@ router.post('/',
 
 		// Implicitly uses bodyParser.json():
 		console.log("req.body.username = '" + req.body.username + "'...");
+
+		// Nice, Dickey, req.body.body...isn't that a bit confusing? 
 		console.log("req.body.body = '" + req.body.body + "'...");
 
 		// Build a new instance of the Post model...
