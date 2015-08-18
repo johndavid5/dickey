@@ -22,7 +22,24 @@ npm install --save gulp-debug
 npm install --save gulp-tap
 
 npm install --save jwt-simple
-npm install --save bcrypt
+
+REM Forget about bcrypt...use bcrypt-nodejs instead...
+npm install --save bcrypt-nodejs
+REM npm install --save bcrypt
+REM npm uninstall --save bcrypt
+
+REM web sockets for node,
+REM also install globally so
+REM we can use "wscat" from
+REM the command line...
+npm install --save ws
+npm install --global ws
+npm install --global wscat
+
+
+
+
+
 REM NOTE: Needed to do rm -r -f node_modules/bcrypt then
 REM "sudo npm update" to reinstall bcrypt and eliminate
 REM the following error:
@@ -39,3 +56,5 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo apt-get install -y mongodb-org=2.6.1 mongodb-org-server=2.6.1 mongodb-org-shell=2.6.1 mongodb-org-mongos=2.6.1 mongodb-org-tools=2.6.1
+
+

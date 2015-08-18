@@ -38,9 +38,11 @@ router.post('/', function(req, res, next){
 
 	var iNumRounds = 10;	
 
+	var iNumRounds = 10;
+
 	bcrypt.genSalt( iNumRounds, function(err, salt){ 
 		if( err ){
-			console.log("Trouble with bcrypt.genSalt( iNumRounds = ", iNumRounds, "): err = ", err, "..., calling next(err)...");
+			console.log("Trouble with bcrypt.genSalt( iNumRounds = " + iNumRounds + "): err = " + JSON.strinfigy(err) + "..., calling next(err)...");
 			return next(err);
 		}
 		bcrypt.hash( req.body.password, salt, 
@@ -48,50 +50,56 @@ router.post('/', function(req, res, next){
 					//console.log("Making progress, Doc-tor Cy-a-nide...!");
 				},
 				function(err, hash){
-			if( err ){
-				console.log("Trouble with bcrypt.hash( iNumRounds = ", iNumRounds, "): err = ", err, "..., calling next(err)...");
-				return next(err);
-			}
+					if( err ){
+						console.log("Trouble with bcrypt.hash( iNumRounds = ", iNumRounds, "): err = ", err, "..., calling next(err)...");
+						return next(err);
+					}
 
-			var user = new User({"username": req.body.username});
+					var user = new User({"username": req.body.username});
 
-			user.password = hash;
+					user.password = hash;
 
-			console.log("Saving new user to User DB, user = " + JSON.stringify( user ) + "...\n");
-			user.save(function(err, user){
-				if( err ){
-					console.log("Trouble with user.save(): err =\n");
-					console.log( err );
-					return next(err);
+					console.log("Saving new user to User DB, user = " + JSON.stringify( user ) + "...\n");
+
+					user.save(function(err, user){
+
+						if( err ){
+							console.log("Trouble with user.save(): err =\n");
+							console.log( err );
+							return next(err);
+						}
+						console.log("Saved new user username = \"" + req.body.username + "\"..., returning code 201...\n");
+						res.sendStatus(201);
+					});
+
 				}
-				console.log("Saved new user username = \"" + req.body.username + "\"..., returning code 201...\n");
-				res.sendStatus(201);
-			});
-		});
-	});
+		); /* bcrypt.hash() */
 
-		//bcrypt.hash(req.body.password, 10,
-		//function(err, hash){
-		//	if(err){
-		//		console.log(sWho + ": Error in bcrypt.hash(): err=", err );
-		//		return next(err);
-		//	}
+	}); /* bcrypt.genSalt() */
 
-		//	user.password = hash;;
 
-		//	console.log(sWho + ": Saving user = ", user, " to database...");
-
-		//	user.save(function(err){
-		//		if(err){
-		//			console.log(sWho + ": Error during DB save, err=", err );
-		//			return next(err);
-		//		}
-
-		//		console.log(sWho + ": DB Save Success, sending code 201 to client...");
-		//		//res.send(201);
-		//		res.status(201).end();
-		//	});
-		//});
+	//bcrypt.hash(req.body.password, 10,
+	//function(err, hash){
+	//	if(err){
+	//		console.log(sWho + ": Error in bcrypt.hash(): err=", err );
+	//		return next(err);
+	//	}
+	//
+	//	user.password = hash;;
+	//
+	//	console.log(sWho + ": Saving user = ", user, " to database...");
+	//
+	//	user.save(function(err){
+	//		if(err){
+	//			console.log(sWho + ": Error during DB save, err=", err );
+	//			return next(err);
+	//		}
+	//
+	//		console.log(sWho + ": DB Save Success, sending code 201 to client...");
+	//		//res.send(201);
+	//		res.status(201).end();
+	//	});
+	//});
 
 });
 
