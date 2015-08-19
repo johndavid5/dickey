@@ -1,4 +1,5 @@
 var jutils = require('../../../lib/jutils.js');
+var websockets = require('../../websockets');
 var Post = require('../../models/post');
 
 // Use Express's Router object...acting like an app object...
@@ -33,7 +34,7 @@ router.get('/',
 router.post('/',
 	function(req, res, next){
 		console.log( "[" + jutils.dateTimeCompact() + "]: " +
-		"Got POST request on '/api/posts'..."
+		"Got POST request on '/api/posts'...(someone POSTed a post...)"
 		);
 		//console.log( "[" + jutils.dateTimeCompact() + "]: " +
 		//"req = ", req
@@ -78,11 +79,16 @@ router.post('/',
 				// use of it, for example the _id
 				// field or the "date" field that
 				// the server generated...
-				console.log('post.save successful; sending new post to client...');
+				console.log('post.save successful...');
 				// Tue, 21 Oct 2014 23:26:56 GMT express
 				// deprecated res.json(status, obj): Use res.
 				// status(status).json(obj) instead at server.js:60:9
 				//res.json(201, post);
+
+				console.log('broadcasting new post to all websocket clients...');
+				websockets.broadcast('new_post', post); 
+
+				console.log('sending new post to http client...');
 				res.status(201).json(post);
 			}
 		);

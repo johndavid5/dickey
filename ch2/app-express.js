@@ -1,7 +1,7 @@
-// http://www.bennadel.com/blog/2169-where-does-node-js-and-require-look-for-modules.htm
-//var express = require('express');
+// See http://www.bennadel.com/blog/2169-where-does-node-js-and-require-look-for-modules.htm
+var express = require('express');
 //var express = require("C:\\Users\\john.aynedjian\\AppData\\Roaming\\npm\\node_modules\\express");
-var express = require("C:\\Users\\John.diana\\AppData\\Roaming\\npm\\node_modules\\express");
+//var express = require("C:\\Users\\John.diana\\AppData\\Roaming\\npm\\node_modules\\express");
 
 var app = express();
 

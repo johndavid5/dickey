@@ -36,7 +36,8 @@ npm install --save ws
 npm install --global ws
 npm install --global wscat
 
-
+REM Using lo-dash in websocket.js
+npm install --save lodash
 
 
 
