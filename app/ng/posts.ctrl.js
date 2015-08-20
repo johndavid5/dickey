@@ -1,23 +1,23 @@
-
 // create the PostsCtrl module
 // dependency inject $scope
-app.controller(
+//app.controller(
+angular.module('app').controller(
   'PostsCtrl', 
   // The function runs when the "Add Post" button is clicked.
   // NEW!  Dependency inject $http so that Angular will give you
   // an instance of $http in your controller.
 
-  //function($scope, $http){
   function($scope, PostsSvc){
 
 	$scope.addPost = function(){
 		if( $scope.postBody ){
-				//$http.post('/api/posts', { 
 				PostsSvc.create({
 					username: 'dickeyxxx',
 					body: $scope.postBody
 				}).success( function(post){
-					$scope.posts.unshift(post); // Unshift new post onto list...
+					// No longer necessary to un-shift new post onto our list, we'll 
+					// now be listening for ALL new posts via web sockets...
+					//$scope.posts.unshift(post); // Unshift new post onto list...
 					$scope.postBody = null; // Clear the text field.
 				}).error( function(err){
 					alert("Trouble posting post: '" + err + "'");
@@ -50,7 +50,6 @@ app.controller(
 	console.log("GET-ting posts from '" + node_url + "'...");
 
 	// NEW!  Use posts from server as starting data...
-	//$http.get(node_url)
 	PostsSvc.fetch()
 		.success(function(posts){
 			console.log("Got posts from server: posts = ", posts );
@@ -65,5 +64,19 @@ app.controller(
 			alert("Trouble getting posts from '" + node_url + "': " + err );
 		});
 
-  }
-);
+	// Listen for new posts broadcast over $routeScope.
+	$scope.$on('ws:new_post', function(_, post){
+		var sWho = "$scope.$on('ws:new_post')";
+		console.log(sWho + "SHEMP: Hey, Moe: _ = ", _ , ", post = ", post , "...");
+		// I’m not sure why $ scope. $ apply() is necessary here, but without it
+		// the UI won’t update. I think that $scope.$on should be triggering a
+		// digest cycle, so it may be an Angular bug. Regardless, adding $scope.$apply()
+		// solves the issue. Dickey, page 134
+		$scope.$apply( function() {
+			$scope.posts.unshift( post );
+		});
+	});
+
+  }/* function($scope, PostsSvc) */
+
+);/* angular.module('app').controller */
