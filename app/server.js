@@ -2,6 +2,9 @@ var jutils = require('../lib/jutils.js');
 var express = require('express');
 var bodyParser = require('body-parser');
 
+require('./consolador'); // Override console.log() to prepend (<pid>) to message...
+var logger = require('./logger');
+
 var app = express();
 app.use(bodyParser.json());
 

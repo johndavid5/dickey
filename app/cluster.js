@@ -17,6 +17,19 @@
 'use strict';
 var numCpus = require('os').cpus().length
 var cluster = require('cluster')
+require('./consolador'); // Override console.log() to prepend (<pid>) to message...
+
+var sOuterWho = "boot.js";
+
+function inspectCPUs(){ 
+	var sWho = sOuterWho + "::sWho";
+	var cpus = require('os').cpus();
+	console.log(sWho + "(): Looks like we've got ourselves " + cpus.length + " CPU" + (cpus.length!=1?"'s":"") + ", pardner" + (cpus.length!=0?":":".") );
+	for( var i = 0; i < cpus.length; i++ ){
+		console.log(sWho + "(): cpus[" + i + "] = ", cpus[i], ", pardner...");
+	}
+	console.log(sWho + "(): Let off some CPU's, Bennett!");
+}
 
 cluster.setupMaster({exec: __dirname + '/server.js'})
 
@@ -30,8 +43,12 @@ var stopping = false
 
 // Forks off the workers unless the server is stopping
 function forkNewWorkers() {
+  var sWho = "boot.js: forkNewWorkers";
   if (!stopping) {
-    for (var i = numWorkers(); i < numCpus; i++) { cluster.fork() }
+    for (var i = numWorkers(); i < numCpus; i++) {
+		console.log(sWho + "(): fork()-ing a new worker...");
+		cluster.fork()
+	}
   }
 }
 
@@ -62,9 +79,11 @@ function stopNextWorker() {
 
 // Stops all the works at once
 function stopAllWorkers() {
+  var sWho = sOuterWho + "::stopAllWorkers";
   stopping = true
   console.log('stopping all workers')
   workerIds().forEach(function (id) {
+	console.log(sWho + "(): stopping worker[" + id + "]: ", cluster.workers[id], "...");
     stopWorker(cluster.workers[id])
   })
 }
@@ -88,7 +107,11 @@ process.on('SIGHUP', function() {
 // Kill all the workers at once
 process.on('SIGTERM', stopAllWorkers)
 
+
+inspectCPUs();
+
 // Fork off the initial workers
+console.log(sOuterWho + ": Calling forkNewWorkers()...");
 forkNewWorkers()
-console.log('app master', process.pid, 'booted')
+console.log(sOuterWho + ': app master', process.pid, 'booted')
 
