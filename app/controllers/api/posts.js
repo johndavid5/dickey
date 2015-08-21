@@ -1,5 +1,6 @@
 var jutils = require('../../../lib/jutils.js');
 var websockets = require('../../websockets');
+var pubsub = require('../../pubsub');
 var Post = require('../../models/post');
 
 // Use Express's Router object...acting like an app object...
@@ -86,13 +87,18 @@ router.post('/',
 				//res.json(201, post);
 
 				console.log('broadcasting new post to all websocket clients...');
-				websockets.broadcast('new_post', post); 
+				//websockets.broadcast('new_post', post); 
+				pubsub.publish('new_post', post);
 
 				console.log('sending new post to http client...');
 				res.status(201).json(post);
 			}
 		);
 	}
-);
+); /* router.post() */
+
+pubsub.subscribe('new_post', function(post){
+	websockets.broadcast('new_post', post);
+});
 
 module.exports = router;

@@ -63,3 +63,6 @@ npm install --save async
 
 REM need 'underscore' for ./lib/log4js 
 npm install --save underscore
+
+REM need Redis for pubsub.js
+npm install --save redis

@@ -1,4 +1,7 @@
 jutils = require('./jutils');
+
+var sWho = "consolador.js";
+
 /*
 * Override console.log to pre-pend (<process.pid>) to message...
 * Later can make fancier if we want...perhaps separate
@@ -18,7 +21,8 @@ jutils = require('./jutils');
     }  
 })();
 
-console.log("process.pid = ", process.pid );
+console.log(sWho + ": overwrote console.log to prepend (<PID>) to message...");
 
-console.log("Let off some steam, Bennett!");
-console.log("Let off some ", "steam", ", Bennett!");
+//console.log("process.pid = ", process.pid );
+//console.log("Let off some steam, Bennett!");
+//console.log("Let off some ", "steam", ", Bennett!");

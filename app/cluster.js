@@ -1,6 +1,6 @@
 /**
 * Dickey's cyool code to create a node cluster based on the
-* CPU's available on your machine.
+* CPU's available on your machine, originally named "boot.js".
 *
 * Originally used to test that notifications would occur properly
 * on a cluster.
@@ -19,7 +19,7 @@ var numCpus = require('os').cpus().length
 var cluster = require('cluster')
 require('./consolador'); // Override console.log() to prepend (<pid>) to message...
 
-var sOuterWho = "boot.js";
+var sOuterWho = "cluster.js";
 
 function inspectCPUs(){ 
 	var sWho = sOuterWho + "::sWho";

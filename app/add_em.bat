@@ -11,7 +11,10 @@ git add server.js
 git add websockets.js
 git add package.json
 
+git add css/app.styl
+
 git add gulp/cluster.js
+
 git add jutils.js
 git add jutilstest.js
 
