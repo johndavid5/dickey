@@ -1,6 +1,5 @@
 /* Implement pub-sub broadcasts common to all
 * instances in the cluster using Redis...
-* ...too bad Redis isn't supported on Windows...
 */
 var redis = require('redis');
 var client = redis.createClient();

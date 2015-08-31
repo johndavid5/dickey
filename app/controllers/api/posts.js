@@ -1,11 +1,15 @@
 var jutils = require('../../../lib/jutils.js');
 var websockets = require('../../websockets');
-var pubsub = require('../../pubsub');
+//var pubsub = require('../../pubsub');
+//var publish = require('../../publisher');
+//var subscribe = require('../../subscriber');
 var Post = require('../../models/post');
 
 // Use Express's Router object...acting like an app object...
 // ...use like middleware to attach it to your app...
 var router = require('express').Router();
+
+var sWho = "posts.js";
 
 //app.get('/api/posts',
 //router.get('/api/posts', 
@@ -35,7 +39,7 @@ router.get('/',
 router.post('/',
 	function(req, res, next){
 		console.log( "[" + jutils.dateTimeCompact() + "]: " +
-		"Got POST request on '/api/posts'...(someone POSTed a post...)"
+		"Got POST request on '/api/posts'...(someone POST-ed a post...)"
 		);
 		//console.log( "[" + jutils.dateTimeCompact() + "]: " +
 		//"req = ", req
@@ -86,19 +90,22 @@ router.post('/',
 				// status(status).json(obj) instead at server.js:60:9
 				//res.json(201, post);
 
-				console.log('broadcasting new post to all websocket clients...');
-				//websockets.broadcast('new_post', post); 
-				pubsub.publish('new_post', post);
+				console.log(sWho + ": Calling websockets.broadcast('new_post',", post, ")...");
+				websockets.broadcast('new_post', post); 
+				//pubsub.publish('new_post', post);
+				//publish('new_post', post);
 
-				console.log('sending new post to http client...');
+				console.log('Sending new post to http client...');
 				res.status(201).json(post);
 			}
 		);
 	}
 ); /* router.post() */
 
-pubsub.subscribe('new_post', function(post){
-	websockets.broadcast('new_post', post);
-});
+//pubsub.subscribe('new_post', function(post){
+//subscribe('new_post', function(post){
+//	console.log(sWho + ': subscribe(): broadcasting new post', post, 'to all websockets clients...');
+//	websockets.broadcast('new_post', post);
+//});
 
 module.exports = router;

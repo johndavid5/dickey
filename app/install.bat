@@ -64,5 +64,19 @@ npm install --save async
 REM need 'underscore' for ./lib/log4js 
 npm install --save underscore
 
-REM need Redis for pubsub.js
+REM Need Redis for pubsub.js
 npm install --save redis
+
+REM Need ZeroMQ since Redis is not supported on Windows...
+REM (Microsoft's engineers ported it a few years back,
+REM  but only for 64-bit...)
+npm install --save zmq
+
+REM Install Protractor...but only for dev...
+npm install --save-dev protractor
+
+REM Protractor has a nifty utility for setting up WebDriver with Selenium...
+./node_modules/.bin/webdriver-manager update
+
+REM Install Mocha...but only for dev...
+npm install --save-dev mocha

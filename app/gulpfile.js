@@ -41,8 +41,8 @@ gulp.task('welcome', function(){
 	console.log('Welcome to gulp!');
 });
 
-//gulp.task('dev', ['watch:css', 'watch:js', 'dev:server']);
-gulp.task('dev', ['watch:css', 'watch:js', 'dev:cluster']);
+gulp.task('dev', ['watch:css', 'watch:js', 'dev:server']);
+//gulp.task('dev', ['watch:css', 'watch:js', 'dev:cluster']);
 
 gulp.task('hello', 
 	['welcome'], /* <== List of Dependencies */

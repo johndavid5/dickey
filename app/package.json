@@ -21,6 +21,11 @@
     "mongoose": "~3.8.18",
     "redis": "^0.12.1",
     "underscore": "^1.8.3",
-    "ws": "^0.7.2"
+    "ws": "^0.7.2",
+    "zmq": "^2.13.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.0",
+    "protractor": "^2.2.0"
   }
 }
