@@ -19,7 +19,11 @@ app.use('/api/users', require('./controllers/api/users'));
 app.use('/api/sessions', require('./controllers/api/sessions'));
 app.use('/', require('./controllers/static'));
 
-var le_port = 3001;
+// Allow to listen on port specified in environmental variable,
+// otherwise default to port 3001...this way Protractor can
+// start server on alternate port and prevent clash with
+// server running on port 3001...
+var le_port = process.env.PORT || 3001;
 
 var server = app.listen(le_port,
 	function(){
