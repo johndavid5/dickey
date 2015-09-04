@@ -1,0 +1,1 @@
+mongo <chennie-purge.js 

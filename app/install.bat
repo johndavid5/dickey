@@ -86,3 +86,9 @@ npm install --save-dev chai
 
 REM Install chai-as-promised plugin for Chai...syntactic sugar to make it easier to work with promises...
 npm install --save-dev chai-as-promised.
+
+REM Install supertest -- a test jig supplied by Express to allow
+REM your custom code to consume requests rather than Express. 
+REM Kinda-sorta a mock Express object...?
+npm install --save-dev supertest
+

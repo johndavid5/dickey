@@ -1,23 +1,23 @@
 var jutils = require('../lib/jutils.js');
 var express = require('express');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 
 require('./consolador'); // Override console.log() to prepend (<pid>) to message...
 var logger = require('./logger');
 
-var websockets = require('./websockets');
-
 var app = express();
-app.use(require('./controllers')); // Use new root router object defined in ./controllers/index.js...
+app.use(bodyParser.json());
 
-//app.use(bodyParser.json());
+app.use(require('./auth')); // Pull in "auth" middleware...
 
-//app.use(require('./auth')); // Pull in "auth" middleware...
-
-//app.use('/api/posts', require('./controllers/api/posts'));
-//app.use('/api/users', require('./controllers/api/users'));
-//app.use('/api/sessions', require('./controllers/api/sessions'));
-//app.use('/', require('./controllers/static'));
+//app.use(require('./controllers/api/posts'));
+// Use '/api/posts' namespace...so controllers/api/posts only has
+// to refer to '/' rather than '/api/posts'...
+app.use('/api/posts', require('./controllers/api/posts'));
+app.use('/api/users', require('./controllers/api/users'));
+//app.use(require('./controllers/api/users'));
+app.use('/api/sessions', require('./controllers/api/sessions'));
+app.use('/', require('./controllers/static'));
 
 // Allow to listen on port specified in environmental variable,
 // otherwise default to port 3001...this way Protractor can
@@ -32,5 +32,5 @@ var server = app.listen(le_port,
 	}
 );
 
-websockets.connect(server);
+require('./websockets').connect(server);
 	

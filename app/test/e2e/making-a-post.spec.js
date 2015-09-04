@@ -2,6 +2,8 @@ var chai = require('chai');
 chai.use(require('chai-as-promised'));
 var expect = chai.expect;
 
+// http://stackoverflow.com/questions/16607039/in-mocha-testing-while-calling-asynchronous-function-how-to-avoid-the-timeout-er
+
 // It's important the tests end in .spec.js since that's how you will tell
 // Protractor to find the tests.  It will also allow us to have .js files in the
 // test/e2e directory that are not tests -- such as utility scripts.
