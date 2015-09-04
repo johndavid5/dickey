@@ -1,4 +1,8 @@
 git add add_em.bat
+git add all-posts-get.bat
+git add all-posts-get.js
+git add all-posts-purge.bat
+git add all-posts-purge.js
 git add cluster.bat
 git add config.js
 git add curl_new_user.bat
@@ -31,7 +35,8 @@ git add layouts/app.html
 
 git add templates/login.html
 
-git add tests/e2e/making-a-post.spec.js
+git add test/e2e/making-a-post.spec.js
+git add test/server/controllers/api/posts.spec.js
 
 git add ng/posts.ctrl.js
 git add ng/login.ctrl.js

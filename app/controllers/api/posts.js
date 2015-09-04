@@ -20,12 +20,22 @@ router.get('/',
 		);
 
 		Post.find()
-		.sort('-date')
+		//.sort('-date')
+		.sort('-_id')
 		.exec(function(err, posts){
 			if(err){
 				console.log('Error during Post.find: err = ', err );
 				return next(err)
 			}
+
+			
+			//console.log("Before custom sort: posts = ", posts );
+
+			//posts.sort( function( post1, post2 ){
+			//		return post1._id - post2._id;
+			//});
+
+			//console.log("After custom sort: posts = ", posts );
 
 			console.log('Post.find successful; sending posts to client, posts =', posts);
 			res.json(posts);
@@ -37,6 +47,7 @@ router.get('/',
 //app.post('/api/posts',
 //router.post('/api/posts', 
 router.post('/',
+
 	function(req, res, next){
 		console.log( "[" + jutils.dateTimeCompact() + "]: " +
 		"Got POST request on '/api/posts'...(someone POST-ed a post...)"
