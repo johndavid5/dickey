@@ -19,6 +19,10 @@ router.get('/',
 		"Got request on '/api/posts'...doing Post.find()..."
 		);
 
+		// Try sorting by '_id' (which is, in effect, a logical time stamp) rather than 'date'
+		// ...this is because when we do the Mocha test, the posts have the same timestamp
+		// to the nearest 0.001 seconds, so they're in arbitrary order...and that's annoying...
+
 		Post.find()
 		//.sort('-date')
 		.sort('-_id')

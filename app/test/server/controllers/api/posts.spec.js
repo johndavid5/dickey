@@ -2,13 +2,14 @@
 // You're actually testing the controller now.
 // You're checking to see whether it responds
 // with a 200 status code. 
-var api = require('../../support/api');
+var api = require('../../support/api'); // "supertest" version of the API...
+var user = require('../../support/user'); // user authentication shortcut using "jsonwebtoken"...
 var expect = require('chai').expect;
 
 describe('controllers.api.posts', function(){
 	describe('GET /api/posts - HTTP 200 Response', function(){
 		it('exists', function(done){
-			console.log("STEED: Simply checking for HTTP response 200 from GET /api/posts...");
+			console.log("STEED: Just checking for HTTP response 200 from GET /api/posts...");
 			api.get('/api/posts')
 			.expect(200)
 			.end(done);
@@ -24,6 +25,43 @@ describe('controllers.api.posts', function(){
 		Post.remove({}, done); // Remove all posts...
 	});
 
+
+	describe('POST /api/posts', function(){
+
+		var token;
+
+		// Part I: Create the user and save their token
+		// in the "token" variable...
+		beforeEach(function(done){
+			console.log("STEED: Creating user 'arnie', Mrs. Peel...");
+			user.create('arnie', 'pass', function(err, user){
+				token = user.token;
+				done(err);
+			});
+		});
+
+		var cw_post = 'Let off some steam, Bennett!';
+
+		// Part II: 
+		beforeEach(function(done){
+			console.log("STEED: Just posting cw_post = '" + cw_post + "', Mrs. Peel...");
+			api.post('/api/posts')
+			.send({body: cw_post })
+			.set('X-Auth', token)
+			.expect(201)
+			.end(done)
+		});
+
+		it('added 1 new post', function(done){
+			console.log("STEED: Just see if we have a post equal to cw_post, Mrs. Peel...");
+			Post.findOne(function(err, post){
+				expect(post.body).to.equal( cw_post );
+				done(err);
+			});
+		});
+
+	}); /* describe 'POST /api/posts' */
+
 	describe('GET /api/posts', function(){
 		var test_posts = [
 			{username: 'bennett',
@@ -33,7 +71,7 @@ describe('controllers.api.posts', function(){
 			{username: 'arias',
 			 body: 'Mister Bennett, my soldiers are patriots.'},
 			{username: 'bennett',
-			 body: 'Your soldiers are nothin\'.  Matrix and I could kill \'em all...in the blink of an eye.  Remember that.'},
+			 body: 'Your soldiers are nothin\'.  Matrix and I could kill every one of \'em...in the blink of an eye.  Remember that.'},
 			{username: 'arias',
 			 body: 'Are you trying to frighten me...?'},
 			{username: 'bennett',
@@ -62,7 +100,9 @@ describe('controllers.api.posts', function(){
 			.end(done);
 		});
 
-	});
+	});/* describe 'GET /api/posts' */
+
+
 });
 
 

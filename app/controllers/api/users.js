@@ -38,8 +38,6 @@ router.post('/', function(req, res, next){
 
 	var iNumRounds = 10;	
 
-	var iNumRounds = 10;
-
 	bcrypt.genSalt( iNumRounds, function(err, salt){ 
 		if( err ){
 			console.log("Trouble with bcrypt.genSalt( iNumRounds = " + iNumRounds + "): err = " + JSON.strinfigy(err) + "..., calling next(err)...");

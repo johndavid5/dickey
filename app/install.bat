@@ -92,3 +92,9 @@ REM your custom code to consume requests rather than Express.
 REM Kinda-sorta a mock Express object...?
 npm install --save-dev supertest
 
+REM For Mocha testing...get the web token lickety-split
+REM without bothering with the API...
+npm install --save-dev jsonwebtoken
+
+REM To generate coverage report with Mocha...
+npm install --save-dev blanket 
