@@ -9,6 +9,9 @@ git add curl_new_user.bat
 git add install.bat
 git add package.json
 git add run-protractor.bat
+git add run-mocha-coverage-report.bat
+git add run-mocha.bat
+git add run-protractor.bat
 git add protractor.conf.js
 
 git add readme.txt
@@ -36,7 +39,16 @@ git add layouts/app.html
 git add templates/login.html
 
 git add test/e2e/making-a-post.spec.js
+git add test/mocha.opts
 git add test/server/controllers/api/posts.spec.js
+git add test/server/support/api.js
+git add test/server/support/coverage.js
+git add test/server/support/user.js
+git add test/zmq/hello-client.js
+git add test/zmq/hello-server.js
+git add test/zmq/pub-sub.js
+git add test/zmq/publisher.js
+git add test/zmq/subscriber.js
 
 git add ng/posts.ctrl.js
 git add ng/login.ctrl.js

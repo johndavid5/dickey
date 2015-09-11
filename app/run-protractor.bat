@@ -1,1 +1,1 @@
-./node_modules/.bin/protractor
+.\node_modules\.bin\protractor

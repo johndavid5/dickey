@@ -1,0 +1,74 @@
+https://github.com/alex-seville/blanket/issues/491
+
+Invalid string in instrumented code caused by unescaped Windows pathmarks #491
+ Closed	TomGault opened this issue on May 11 · 14 comments
+Labels
+
+None yet
+Milestone
+
+No milestone
+Assignee
+
+No one assigned
+7 participants
+
+@TomGault @Jeff-Lewis @bengreenier @CaptainNic @theneva @mikkotikkanen @alex-seville
+@TomGault
+TomGault commented on May 11
+I don't have the time to do a complete PR for this guy but I'll tell you what I do know:
+
+I develop on a Windows box. I just cloned a project which was developed likely entirely on Macs.
+I ran the gruntfile which fired up Mocha to run tests using blanket for code coverage reporting.
+Blanket barfed with an error something like this:
+[15:55:11] /c/git-repos/project (master)
+$ grunt
+Running "jshint:files" (jshint) task
+>> 24 files lint free.
+
+Running "mochaTest:test" (mochaTest) task
+>> Mocha exploded!
+>> Error: BLANKET-Error parsing instrumented code: Error: BLANKET-Error parsing instrumented code: SyntaxError: c:\git-repos\project\somefile.js:2
+>> if (typeof _$jscoverage['c:\git-repos\project\somefile.js'] === 'u
+>>                         ^^^^^^^^^^^^^^^^^^^^^^^
+>> Unexpected token ILLEGAL
+>>     at c:\git-repos\project\node_modules\blanket\src\index.js:174:35
+>>     at Object.blanket._blanket.instrument (c:\git-repos\project\node_modules\blanket\src\blanket.js:125:17)
+>>     at Object.require.extensions..js (c:\git-repos\project\node_modules\blanket\src\index.js:155:25)
+>>     at Module.load (module.js:355:32)
+>>     at Function.Module._load (module.js:310:12)
+>>     at Module.require (module.js:365:17)
+>>     at require (module.js:384:17)
+>>     at Object.<anonymous> (c:\git-repos\project\test\core\authSpec.js:11:12)
+>>     at Module._compile (module.js:460:26)
+>>     at Module._extensions..js (module.js:478:10)
+Warning: Task "mochaTest:test" failed. Use --force to continue.
+
+Aborted due to warnings.
+[15:57:01] /c/git-repos/project (master)
+$
+It looks like the Windows pathmarks are not being escaped. That is, c:\git-repos should be c:\\git-repos, or, since node is pretty smart, it totally works if you use c:/git-repos.
+
+project/node_modules/blanket/src/index.js looks like this (starting at line 128 for me)
+
+        //instrument js files
+        require.extensions['.js'] = function(localModule, filename) {
+            var pattern = blanket.options("filter"),
+                reporter_options = blanket.options("reporter_options"),
+                originalFilename = filename,
+                inputFilename = filename;
+            filename = blanket.normalizeBackslashes(filename);
+
+            //we check the never matches first
+If I change it to this (i.e. normalize the input filename), then the error goes away:
+
+        //instrument js files
+        require.extensions['.js'] = function(localModule, filename) {
+            var pattern = blanket.options("filter"),
+                reporter_options = blanket.options("reporter_options"),
+                originalFilename = filename,
+                inputFilename = blanket.normalizeBackslashes(filename);
+            filename = inputFilename;
+
+            //we check the never matches first
+
