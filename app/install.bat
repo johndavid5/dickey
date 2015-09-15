@@ -98,3 +98,17 @@ npm install --save-dev jsonwebtoken
 
 REM To generate coverage report with Mocha...
 npm install --save-dev blanket 
+
+REM Linting tool for JavaScript used for consistent syntax with JavaScript code.
+npm install --save-dev jshint
+
+REM So you can run lint from the command-line...e.g.,
+REM DOS-PROMPT>lint jutils.js
+npm install --global jshint
+
+REM bower: front-end version of npm
+npm install --global bower 
+
+REM karma
+npm install --global karma-cli
+npm install --save-dev karma

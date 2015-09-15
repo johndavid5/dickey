@@ -14,7 +14,7 @@ git add run-mocha.bat
 git add run-protractor.bat
 git add protractor.conf.js
 
-git add readme.txt
+git add ../readme.txt
 
 git add consolador.js
 git add cluster.js
