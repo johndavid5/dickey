@@ -109,6 +109,9 @@ npm install --global jshint
 REM bower: front-end version of npm
 npm install --global bower 
 
-REM karma
+REM karma -- global client first, then local...
 npm install --global karma-cli
 npm install --save-dev karma
+
+REM karma plugins -- including Phantom Headless Browser...
+npm install --save-dev karma-chai karma-mocha karma-phantomjs-launcher 2>&1 | tee npm-install-karma-chai-mocha-phantom.out 

@@ -40,10 +40,16 @@ git add templates/login.html
 
 git add test/e2e/making-a-post.spec.js
 git add test/mocha.opts
+
+git add test/ng/posts.ctrl.spec.js
+git add test/ng/posts.svc.spec.js
+git add test/ng/posts.svc.exists.spec.js
+
 git add test/server/controllers/api/posts.spec.js
 git add test/server/support/api.js
 git add test/server/support/coverage.js
 git add test/server/support/user.js
+
 git add test/zmq/hello-client.js
 git add test/zmq/hello-server.js
 git add test/zmq/pub-sub.js
@@ -51,5 +57,6 @@ git add test/zmq/publisher.js
 git add test/zmq/subscriber.js
 
 git add ng/posts.ctrl.js
+git add ng/posts.svc.js
 git add ng/login.ctrl.js
 git add ng/websockets.js

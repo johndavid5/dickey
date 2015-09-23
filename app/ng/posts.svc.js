@@ -8,9 +8,13 @@
 // for loading posts.
 app.service( 'PostsSvc', function($http){
 	this.fetch = function(){
+		var sWho = "PostsSvc::fetch";
+		console.log(sWho + "(): Calling \$http.get('/api/posts')...");
 		return $http.get('/api/posts');
 	};
 	this.create = function(post){
+		var sWho = "PostsSvc::create";
+		console.log(sWho + "(): Calling \$http.post('/api/posts')...");
 		return $http.post('/api/posts', post);	
 	};
 });

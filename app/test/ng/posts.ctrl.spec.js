@@ -4,6 +4,8 @@ describe('posts.ctrl', function(){
 
 	var $scope;
 
+	var sWho = "posts.ctrl.spec.js";
+
 	beforeEach(inject(function($rootScope, $controller){
 			$scope = $rootScope.$new();
 			$controller('PostsCtrl', {
@@ -13,7 +15,7 @@ describe('posts.ctrl', function(){
 	);
 
 	it('loads posts form the service', function(){
-		console.log("STEED: Just checking to see if $scope.posts has length of 2, Mis-sus Peel..."); 
+		console.log(sWho + ": STEED: Just checking to see if $scope.posts has length of 2, Mis-sus Peel..."); 
 		expect($scope.posts).to.have.length(2);
 	});
 	
