@@ -1,0 +1,11 @@
+git add app/controllers/api/posts.js
+git add app/curl_new_user.bat
+git add app/install.bat
+git add app/package.json
+git add app/websockets.js
+git add ch2/app-express.js
+git add ch2/app.js
+git add status.bat
+git add app/ng/websockets.js
+git add app/status.bat
+git add app/wscat-connect.bat

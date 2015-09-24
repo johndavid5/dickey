@@ -1,3 +1,4 @@
+git add ../add_em.bat
 git add add_em.bat
 git add all-posts-get.bat
 git add all-posts-get.js
@@ -13,6 +14,7 @@ git add run-mocha-coverage-report.bat
 git add run-mocha.bat
 git add run-protractor.bat
 git add protractor.conf.js
+git add karma.conf.js
 
 git add ../readme.txt
 

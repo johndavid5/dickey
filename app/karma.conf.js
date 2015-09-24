@@ -1,13 +1,14 @@
 module.exports = function(config){
 	config.set({
-		frameworks: ['mocha', 'chai'],
+		frameworks: ['mocha', 'chai', 'sinon-chai'],
 		files: [
 			'assets/bower/angular/angular.js',
 			'assets/bower/angular-route/angular-route.js',
 			'assets/bower/angular-mocks/angular-mocks.js',
 			'ng/**/module.js',
 			'ng/**/*.js',
-			'test/ng/**/*.spec.js'
+			'test/ng/**/*.spec.js',
+			//'test/ng/posts.ctrl.spec.js',
 		],
 		reporters: ['progress'],
 		port: 9876,

@@ -41,8 +41,13 @@ describe('posts.svc', function(){
 				console.log(sWho + "(): STEED: Just checking to see if PostsSvc.fetch() returns " +
 					samplePosts.length + " post" + (samplePosts.length == 1?"":"s") + ", Mis-sus Peel...");
 
-				PostsSvc.fetch().success(function(posts){
-					console.log(sWho + "(): STEED: For your information, posts.length = " + posts.length + ", Mis-sus Peel..." );
+				PostsSvc.fetch().then(function(posts){
+					//console.log(sWho + "(): STEED: Calling $scope.$digest(), Mis-sus Peel...");
+					//$scope.$digest();
+					console.log(sWho + "(): STEED: For your information, posts = " + posts + ", Mis-sus Peel..." );
+					if( typeof( posts.length ) != "undefined" ){
+						console.log(sWho + "(): STEED: For your information, posts.length = " + posts.length + ", Mis-sus Peel..." );
+					}
 					expect(posts).to.have.length(samplePosts.length);
 				});
 			});

@@ -10,7 +10,10 @@ app.service( 'PostsSvc', function($http){
 	this.fetch = function(){
 		var sWho = "PostsSvc::fetch";
 		console.log(sWho + "(): Calling \$http.get('/api/posts')...");
-		return $http.get('/api/posts');
+		return $http.get('/api/posts')
+		.then(function( response ){
+			return response.data;
+		});
 	};
 	this.create = function(post){
 		var sWho = "PostsSvc::create";

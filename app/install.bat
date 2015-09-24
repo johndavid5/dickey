@@ -115,3 +115,6 @@ npm install --save-dev karma
 
 REM karma plugins -- including Phantom Headless Browser...
 npm install --save-dev karma-chai karma-mocha karma-phantomjs-launcher 2>&1 | tee npm-install-karma-chai-mocha-phantom.out 
+
+REM install JavaScript spy tool Sinon...
+npm install --save-dev karma-sinon-chai
